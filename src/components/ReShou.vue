@@ -1,15 +1,15 @@
 <template>
   <ul class="boxhot"  >
-    <div v-if="this.weibos" ref="ulbox">
+    <div v-if="this.weibos" >
       <li  v-for="item in this.weibo" :key="item.hot" ><a :href="item.url" target="_blank">{{item.name}}</a></li>
     </div>
-    <div v-if="this.zhihus" ref="ulbox">
+    <div v-if="this.zhihus">
       <li  v-for="item in this.zhihu" :key="item.name" ><a :href="item.url" target="_blank">{{item.name}}</a></li>
     </div>
-    <div v-if="this.baidus" ref="ulbox">
+    <div v-if="this.baidus">
       <li  v-for="item in this.baidu" :key="item.hot" ><a :href="item.url" target="_blank">{{item.name}}</a></li>
     </div>
-    <div v-if="this.bilis" ref="ulbox">
+    <div v-if="this.bilis">
       <li  v-for="item in this.bili" :key="item.name" ><a :href="item.url" target="_blank">{{item.name}}</a></li>
     </div>
     
@@ -67,31 +67,6 @@ export default {
       
     // }
   },
-  mounted() {
-    let ulbox1 = this.$refs.ulbox
-    let list = ulbox1.children
-    window.onresize = function () {
-      if (this.innerWidth < 650) {
-        for (let i = 0; i < 10; i++) {
-          list[i].style.width = '100%'
-        }
-      } else {
-        for (let i = 0; i < 10; i++) {
-          list[i].style.width = '50%'
-        }
-      }
-    }
-  },
-  computed: {
-    li() {
-      if (this.weibos) {
-        return '<li  v-for="item in this.weibo" :key="item.hot" ><a :href="item.url" target="_blank">{{item.name}}</a></li> '
-      } else {
-        return '不行'
-      }
-      
-    }
-  }
 }
 </script>
 
